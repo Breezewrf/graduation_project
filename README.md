@@ -38,3 +38,8 @@ split then refine ：很方便可以在colab运行，本地运行有报错尚未
 
 Visable Watermark Removal via Self-calibrated Localization and Background：没有pretrained-model，准备在colab上先训练看看
 
+2021/12/30:
+
+> 看到昨天的日志，仿佛我还满怀期待的准备和她出去玩，可是该走的总是要走，一个月来的回忆要多久能淡去。没有人能真的很好规划未来，但还是希望晴天早点到来，也至少是个慰藉
+
+今天真的不大想工作
