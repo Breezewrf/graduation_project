@@ -1,5 +1,9 @@
 # Graduation Project Daily
 
+2022/1/5:
+
+计划明天先部署着看，之前ncnn有的步骤有点忘了
+
 **2022/1/4**:
 
 > 玩了好多天了
@@ -27,8 +31,14 @@
 > > :white_circle:[MRUIL/WDNet (github.com)](https://github.com/MRUIL/WDNet)
 > >
 > > :white_circle: [ACM MM 2021\] Visible Watermark Removal via Self-calibrated Localization and Background Refinement (github.com)](https://github.com/bcmi/SLBR-Visible-Watermark-Removal)
-> >
-> > 
+>
+> 解压了快三个小时也是绝了 
+>
+> ![2](images/image-20220104211626807.png)
+>
+> 明天不打算训练，colab太搞人了不知道为什么原本解压好好的现在数据有一部分丢失了，之前也是这样。
+>
+> 
 
 **2021/12/30**:
 
