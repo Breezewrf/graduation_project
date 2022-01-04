@@ -1,6 +1,40 @@
 # Graduation Project Daily
 
-2021/12/29:
+**2022/1/4**:
+
+> 玩了好多天了
+>
+> 前几天一直push不上去，加上国内网络不好，今天才知道要另外加令牌。。
+>
+> 前两天终于在pc端跑出来一个(split then refine)
+>
+> ![1](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5C1.png)
+>
+> > 
+>
+> 目标:bookmark_tabs:
+>
+> > 项目清单（paper+code）
+> >
+> > [GitHub - bcmi/Awesome-Visible-Watermark-Removal](https://github.com/bcmi/Awesome-Visible-Watermark-Removal)
+> >
+> > 打卡：
+> >
+> > :white_circle:[amirhertz/visual_motif_removal (github.com)](https://github.com/amirhertz/visual_motif_removal)
+> >
+> > :ok: [AAAI 2021\] Split then Refine: Stacked Attention-guided ResUNets for Blind Single Image Visible Watermark Removal](https://github.com/vinthony/deep-blind-watermark-removal)
+> >
+> > :white_circle:[MRUIL/WDNet (github.com)](https://github.com/MRUIL/WDNet)
+> >
+> > :white_circle: [ACM MM 2021\] Visible Watermark Removal via Self-calibrated Localization and Background Refinement (github.com)](https://github.com/bcmi/SLBR-Visible-Watermark-Removal)
+
+**2021/12/30**:
+
+> 看到昨天的日志，仿佛我还满怀期待的准备和她出去玩，可是该走的总是要走，一个月来的回忆要多久能淡去。没有人能真的很好规划未来，但还是希望晴天早点到来，也至少是个慰藉
+
+今天真的不大想工作
+
+**2021/12/29**:
 
 > 瞎说:yum:
 >
@@ -34,12 +68,7 @@
 > >
 > > :white_circle: [ACM MM 2021\] Visible Watermark Removal via Self-calibrated Localization and Background Refinement (github.com)](https://github.com/bcmi/SLBR-Visible-Watermark-Removal)
 
-split then refine ：很方便可以在colab运行，本地运行有报错尚未解决
+split then refine ：很方便可以在colab运行，本地运行有报错尚未解决​​
 
 Visable Watermark Removal via Self-calibrated Localization and Background：没有pretrained-model，准备在colab上先训练看看
 
-2021/12/30:
-
-> 看到昨天的日志，仿佛我还满怀期待的准备和她出去玩，可是该走的总是要走，一个月来的回忆要多久能淡去。没有人能真的很好规划未来，但还是希望晴天早点到来，也至少是个慰藉
-
-今天真的不大想工作
