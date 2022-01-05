@@ -1,8 +1,62 @@
 # Graduation Project Daily
 
-2022/1/5:
+**2022/1/5**:
 
-计划明天先部署着看，之前ncnn有的步骤有点忘了
+~~计划明天先部署着看，之前ncnn有的步骤有点忘了~~
+
+![image-20220105203451124](./images/image-20220105203451124.png)
+
+先快速打个卡，幸好还有一点印象，大概今天能有这样网络输出吧，还没有得到最终结果，应该还有一些后处理代码要写，至少证明这个模型能转，后面就能放心开始读论文读代码了！
+
+今天早点回去整理行李，明天要回家咯:happy:
+
+------
+
+想想还是赶紧记录一下今天实验过程吧 怕等等又忘了：
+
+> --》部署必备三件套：  准备好 CmakeLists.txt  推理模型用的 c++代码  还有一个空的 build 文件夹（编译产生的都将放在里面） 
+>
+> > ![image-20220105204542958](./images/image-20220105204604709.png)
+> >
+> > 今天使用成功的 cmake 编译指令 ：
+> >
+> > `cmake -G "Visual Studio 15 2017 Win64" -Dncnn_DIR=C:/Users/Breeze/ncnn/build-vs2017/install/lib/cmake/ncnn -DOpenCV_DIR=C:\\"Program Files"\\opencv\\build\\x64\\vc15\\lib ..`
+> >
+> > ~~注意：不能用vs 的x64命令行，今天用的这个也卡了好一会儿，后面用vs打开sln的时候他说~~
+> >
+> > 好像想想问题是之前输入`-G "Visual Studio 15 2017 Win64" `的时候Win64在引号外面...
+> >
+> > > 打开sln后一般来说(今天)opencv会自动配上了，但是ncnn和vulkan要另外加：
+> > >
+> > > 在**C/C++的附加目录**以及**VC++目录**加上：
+> > >
+> > > ​	C:\VulkanSDK\1.2.162.0\Include
+> > >
+> > > ​	C:\Users\Breeze\ncnn\build-vs2017\install\include\ncnn
+> > >
+> > > 在**链接器-输入的附加依赖项**加上：
+> > >
+> > > ​	C:\Users\Breeze\ncnn\build-vs2017\install\lib\ncnn.lib
+> > > ​	C:\Program Files\opencv\build\x64\vc15\lib\opencv_world349.lib
+> > > ​	C:\VulkanSDK\1.2.162.0\Lib\vulkan-1.lib
+> > > ​	C:\Users\Breeze\ncnn\build-vs2017\install\lib\glslang.lib
+> > > ​	C:\Users\Breeze\ncnn\build-vs2017\install\lib\SPIRV.lib
+> > > ​	C:\Users\Breeze\ncnn\build-vs2017\install\lib\MachineIndependent.lib
+> > > ​	C:\Users\Breeze\ncnn\build-vs2017\install\lib\OGLCompiler.lib
+> > > ​	C:\Users\Breeze\ncnn\build-vs2017\install\lib\OSDependent.lib
+> > > ​	C:\Users\Breeze\ncnn\build-vs2017\install\lib\GenericCodeGen.lib
+> > > ​	kernel32.lib
+> > > ​	user32.lib
+> > > ​	gdi32.lib
+> > > ​	winspool.lib
+> > > ​	shell32.lib
+> > > ​	ole32.lib
+> > > ​	oleaut32.lib
+> > > ​	uuid.lib
+> > > ​	comdlg32.lib
+> > > ​	advapi32.lib
+>
+> 然后可以把ALL-BUILD和ZERO-CHECK项目卸载，后面就可以快乐编译了！
 
 **2022/1/4**:
 
