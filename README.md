@@ -1,5 +1,13 @@
 # Graduation Project Daily
 
+**2022/1/7**
+
+今天主要学习了dive into deep learning的前两章,虽然之前有看过一遍,但是真的几乎都忘了!
+
+笔记附上(见dive into dl 文件夹)
+
+打算下学期出去实习,先冲冲看,顺便学一些知识也有利于复试
+
 **2022/1/6**
 
 到家了！
