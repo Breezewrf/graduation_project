@@ -1,18 +1,30 @@
 # Graduation Project Daily
 
+**2022/1/15**
+
+每日画大饼时间到!
+
+今天只有晚上学了一小会儿，做完datawhal的任务，明天多花点时间在dive into dl上面吧
+
+单词不要紧，leetcode更重要一些！
+
+> 1、dive into dl **第三章**
+>
+> 2、leetcode
+
 **2022/1/14**
 
 有点来晚了，今天早上push网络不大行，玩了一个下午一个晚上hhh
 
 明天还要去奶奶家，害，计划一下明天：
 
-> 1、datawhale完成task4(早上)
+> :heavy_check_mark:1、datawhale完成task4(早上)
 >
-> 2、dive into dl  **第三章**
+> :heavy_multiplication_x:2、dive into dl  **第三章**
 >
-> 3、可以开始雅思单词了
+> :heavy_multiplication_x:3、可以开始雅思单词了
 >
-> 4、leetcode
+> :heavy_multiplication_x:4、leetcode
 
 **2022/1/13**
 
