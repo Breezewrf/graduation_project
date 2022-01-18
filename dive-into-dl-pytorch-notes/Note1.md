@@ -7,7 +7,7 @@
 `x = torch.zeros(5, 2)`
 
 ```python
-通过现有tensor创建：
+通过现有tensor创建：默认是float32，float64即double
 x = x.new_ones(5, 3, dtype=torch.float64)# 返回全1的tensor，默认与输入tensor有相同dtype和device
 x = torch.randn_like(x, dtype=torch.float)# 可以指定新数据类型
 
