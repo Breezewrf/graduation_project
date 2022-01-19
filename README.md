@@ -1,5 +1,35 @@
 # Graduation Project Daily
 
+**2022/1/19**
+
+早上主要学习了pytorch的网络模型构建方法，明天可以开始卷积了！计划这周可以学完第五章！
+
+做了一下午 + 一晚上的毕设，算是对网络模型有了进一步的了解
+
+就是一直很奇怪不知道为什么c++那边输出的图像总是灰度的，也检查过是channel=3，不清楚哪里出了问题
+
+总结一下今天的一些经验：
+
+> :one:首先是模型输出上，可以先在netron上显示一下onnx的网络，onnx的网络还是很规整的，找到output，这里就有blob的名称：output、855、915、976，然后对应到ncnn的param里面search一下，一般都会有在
+>
+> ![image-20220119235714530](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cimages%5Cimage-20220119235714530.png)
+>
+> :two:注意在多个模型输出的时候，**可以多次使用extract，但是注意输出blob的次序要按网络先后顺序！**如上图，应当是 855->915->976
+>
+> :three:模型结构文件参考[param and model file structure · Tencent/ncnn Wiki (github.com)](https://github.com/Tencent/ncnn/wiki/param-and-model-file-structure)
+>
+> [layer type] [layer name] [input count] [output count] [input blobs] [output blobs] [layer specific params]，**注意要extract的是blob name 而不是layer name**
+>
+> :four:CV_8UC1，CV_8UC2，CV_8UC3。
+> （最后的1、2、3表示通道数，譬如RGB3通道就用CV_8UC3）
+>
+> 而float 是32位的，对应Cv::Mat数据结构参数就是：CV_32FC1，CV_32FC2，CV_32FC3...
+> double是64bits，对应Cv::Mat数据结构参数：CV_64FC1，CV_64FC2，CV_64FC3等。
+
+计划明天：好像只有早上有时间了
+
+> dive into dl 第五章先看看吧！（早上）
+
 **2022/1/18**
 
 dive into dl 终于可以进入第四章了！真的很拖拉！
@@ -8,9 +38,7 @@ dive into dl 终于可以进入第四章了！真的很拖拉！
 
 > :heavy_check_mark:1、dive into dl 第四章可以看完（早上）
 >
-> 2、毕设
-
-> 早上主要学习了pytorch的网络模型构建方法，明天可以开始卷积了！计划这周可以学完第五章！
+> :heavy_check_mark:2、毕设
 
 **2022/1/15**
 
