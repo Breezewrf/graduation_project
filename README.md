@@ -1,5 +1,29 @@
 # Graduation Project Daily
 
+**2022/1/21**
+
+今天主要学了dive into dl
+
+> 填充和步幅的计算
+>
+> 多输入通道和多输出通道
+>
+> 1x1卷积层
+>
+> 池化层
+
+明天计划：
+
+> 1、dive into dl : LeNet, AlexNet, VGG, NiN（早上）
+>
+> 2、leetcode
+>
+> 3、李宏毅
+
+**2022/1/20**
+
+区分卷积和互相关
+
 **2022/1/19**
 
 早上主要学习了pytorch的网络模型构建方法，明天可以开始卷积了！计划这周可以学完第五章！
@@ -12,7 +36,7 @@
 
 > :one:首先是模型输出上，可以先在netron上显示一下onnx的网络，onnx的网络还是很规整的，找到output，这里就有blob的名称：output、855、915、976，然后对应到ncnn的param里面search一下，一般都会有在
 >
-> ![image-20220119235714530](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cimages%5Cimage-20220119235714530.png)
+> ![image-20220119235714530](./images/image-20220119235714530.png)
 >
 > :two:注意在多个模型输出的时候，**可以多次使用extract，但是注意输出blob的次序要按网络先后顺序！**如上图，应当是 855->915->976
 >
