@@ -1,5 +1,11 @@
 # Graduation Project Daily
 
+**2022/1/22**
+
+距离出成绩还有一个月左右时间，
+
+计划在过年前完成leetcode二叉树相关题目，dive into dl 5、7、8、9章节
+
 **2022/1/21**
 
 今天主要学了dive into dl
@@ -14,9 +20,9 @@
 
 明天计划：
 
-> 1、dive into dl : LeNet, AlexNet, VGG, NiN（早上）
+> :heavy_check_mark:1、dive into dl : LeNet, AlexNet（早上）
 >
-> 2、leetcode
+> :heavy_check_mark:2、leetcode
 >
 > 3、李宏毅
 
