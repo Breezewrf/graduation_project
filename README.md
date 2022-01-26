@@ -1,4 +1,12 @@
-# Graduation Project Daily
+# Graduation Project Dai**ly**
+
+**2022/1/26**
+
+这两天看剧看的有点多
+
+距离春节最后四天，静下来好好学习一下
+
+先睡吧，明天早上起来安排
 
 **2022/1/24**
 
