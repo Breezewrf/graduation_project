@@ -1,5 +1,13 @@
 # Graduation Project Dai**ly**
 
+**2022/1/29**
+
+昨天colab跑出来Self-calibrated Localization的代码，感觉效果还是很可以的
+
+![image-20220129224839273](./images/image-20220129224839273.png)
+
+
+
 **2022/1/26**
 
 这两天看剧看的有点多
