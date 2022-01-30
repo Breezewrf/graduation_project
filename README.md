@@ -1,5 +1,9 @@
 # Graduation Project Dai**ly**
 
+**2022/1/30**
+
+计划过年这几天，其他先不做了吧，就翻译翻译论文，主要是SLBR和split then refine，感觉可能要初六再继续学了，算法开始看dp。
+
 **2022/1/29**
 
 昨天colab跑出来Self-calibrated Localization的代码，感觉效果还是很可以的
