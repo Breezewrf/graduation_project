@@ -1,5 +1,15 @@
 # Graduation Project Dai**ly**
 
+**2022/2/12**
+
+在学了在学了
+
+目前已经跑通的有三个，分别是BVMR（第一个blind端到端dl方法，来自以色列），再是split then refine（澳门大学），然后是SLBR（上交），其中SLBR应该是效果最好的，BVMR是colab训练的，算力捉襟见肘没办法，就当理论学习了。
+
+BVMR论文读到第二遍，没打算具体实现，就到此为止吧，开学前会把split then refine和SLBR都读到两遍，然后积累一些基础知识，其他时间都放leetcode吧！
+
+
+
 **2022/2/3**
 
 虎年吉祥！
