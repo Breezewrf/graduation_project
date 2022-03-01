@@ -1,5 +1,19 @@
 # Graduation Project Dai**ly**
 
+**2022/3/1**
+
+今天又读了一遍U2Net，发现有可能可以直接把RSU块换到BVMR上面，再用个deep supervision，先按这样尝试一下，另外觉得还是把UNet、PoolNet、BASNET也再读一下比较好
+
+
+
+**2022/2/27**
+
+要让一切学习回归正轨了
+
+考研成绩并不理想，希望能申得上:macau:澳大
+
+
+
 **2022/2/12**
 
 在学了在学了
