@@ -40,7 +40,7 @@ PoolNet提出金字塔池化模块（Pyramid pooling module，PPM）到那时不
 
 我们提出了RSU模块，如下图RSU-L（Cin，M，Cout）
 
-![image-20220301105400574](C:%5CUsers%5CBreeze%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220301105400574.png)
+![image-20220301105400574](./images/image-20220301105400574.png)
 
 其中L表示encoder中的层数，Cin表示输入通道数，Cout表示输出，M表示RSU输入 \ 输出通道数
 
@@ -56,7 +56,7 @@ RSU可以主要被分为三个部分：
 
 RSU和普通残差块的对比：
 
-![image-20220301111215522](C:%5CUsers%5CBreeze%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220301111215522.png)
+![image-20220301111215522](./images/image-20220301111215522.png)
 
 普通残差块：`H(x) = F2(F1(x)) + x`
 
@@ -78,7 +78,7 @@ INC: Inception block
 
 RSU: Residual U-block
 
-![image-20220301112602241](C:%5CUsers%5CBreeze%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220301112602241.png)
+![image-20220301112602241](./images/image-20220301112602241.png)
 
 ### 2、Architecture of U2-Net
 
@@ -86,7 +86,7 @@ RSU: Residual U-block
 
 我们提出Un-Net, 理论上，指数n可以设置为任意正整数，以实现单级或多级嵌套U型结构。但是嵌套级别太多的体系结构将太复杂，无法在实际应用中实现和使用。 
 
-![image-20220301114515708](C:%5CUsers%5CBreeze%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220301114515708.png)
+![image-20220301114515708](./images/image-20220301114515708.png)
 
 top-level：外部大的U型结构，包括了11个stages（stage是上图中的立方体）
 
@@ -114,7 +114,7 @@ button-level：stage中的U型结构，每个stage中都包含一个RSU块
 >
 > En4->RSU-4
 >
-> En5->RSU-4F    F表示用空洞卷积代替池化层和上采样操作，如下图所示，也就是说RSU-4F中的所有feature maps尺寸均相同（分辨率已经很低了，再池化会使特征退化）![image-20220301151416346](C:%5CUsers%5CBreeze%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220301151416346.png)
+> En5->RSU-4F    F表示用空洞卷积代替池化层和上采样操作，如下图所示，也就是说RSU-4F中的所有feature maps尺寸均相同（分辨率已经很低了，再池化会使特征退化）![image-20220301151416346](./image/image-20220301151416346.png)
 
 > **decoder**
 >
@@ -122,7 +122,7 @@ button-level：stage中的U型结构，每个stage中都包含一个RSU块
 
 > **fuse**
 >
-> 最后是显著图融合模块，类似HED，U2Net首先生成6个side output显著图：Sside6，Sside5，Sside4，Sside3，Sside2，Sside1；它们分别来自En6、De5、De4、De3、De2、De1的输出再加上一个3x3的conv和sigmoid激活得到的结果。
+> 最后是显著图融合模块，类似**HED**，U2Net首先生成6个side output显著图：Sside6，Sside5，Sside4，Sside3，Sside2，Sside1；它们分别来自En6、De5、De4、De3、De2、De1的输出再加上一个3x3的conv和sigmoid激活得到的结果。
 >
 > 然后将logits（conv后sigmoid前的图像）上采样到输入图像大小，再经过1x1 conv和sigmoid后将他们concatenate得到最终的显著性概率图
 
@@ -136,11 +136,11 @@ button-level：stage中的U型结构，每个stage中都包含一个RSU块
 
 对每个输出的显著图都计算loss，并且具有不同的权重w；
 
-![image-20220301154302387](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220301154302387.png)
+![image-20220301154302387](./images/image-20220301154302387.png)
 
 其中loss为standard binary cross-entropy
 
-![image-20220301154321544](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220301154321544.png)
+![image-20220301154321544](./images/image-20220301154321544.png)
 
 ## Experimental Results
 
