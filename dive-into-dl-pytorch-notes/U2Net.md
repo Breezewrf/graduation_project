@@ -172,7 +172,7 @@ Evaluation datasets: DUT-OMRON(5168, 含1-2个复杂前景物体), DUTS-TE(5019)
 
 train中将输入image先resize到320x320，再随机垂直翻转resize到288x288
 
-所有卷积层由**Xavier**初始化
+:star:所有卷积层由**Xavier**初始化
 
 loss的权重均初始化设为1
 
