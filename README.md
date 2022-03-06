@@ -1,5 +1,13 @@
 # Graduation Project Dai**ly**
 
+**2022-3-6**
+
+加了一个RSU5模块（左），模型大小增加0.1MB，好像效果不大看得出来，计划明天训练的时候可视化一下
+
+打算只做关于字符水印的去除，SLBR那些模型的训练集都是包含图案的，当然他对于字符的效果实际上并没有BVMR好（有测试过几张图像了）
+
+![img](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cimages%5Cclip_image002.jpg)![img](file:///C:/Users/Breeze/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg)![img](file:///C:/Users/Breeze/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg)![img](file:///C:/Users/Breeze/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg)![img](file:///C:/Users/Breeze/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)![img](file:///C:/Users/Breeze/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg)![img](file:///C:/Users/Breeze/AppData/Local/Temp/msohtmlclip1/01/clip_image014.jpg)![img](file:///C:/Users/Breeze/AppData/Local/Temp/msohtmlclip1/01/clip_image016.jpg)
+
 **2022/3/4**
 
 记录一下毕设的想法：由于算力实在不足，先用UNet的预训练模型继续训练，项目代码比较清晰的开源代码比较容易拓展一点，具体想法是改成两个decoders，一个输出水印去除的结果，另一个输出mask，因为考虑到后面应该还是要加上refinement模块，所以先试试两个decoders的，还要准备一下数据集，计划周末两天弄完
