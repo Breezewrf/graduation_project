@@ -1,0 +1,18 @@
+{
+    "os": "Windows-10-10.0.18362-SP0",
+    "python": "3.7.4",
+    "heartbeatAt": "2022-03-08T03:33:18.256245",
+    "startedAt": "2022-03-08T03:33:05.659668",
+    "docker": null,
+    "gpu": "GeForce MX150",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:/Users/Breeze/Desktop/AdvancedUnet/train/train_main.py",
+    "codePath": "train_main.py",
+    "host": "LAPTOP-GGSGQ717",
+    "username": "Breeze",
+    "executable": "C:\\Users\\Breeze\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+}
