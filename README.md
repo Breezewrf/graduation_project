@@ -1,5 +1,45 @@
 # Graduation Project Dai**ly**
 
+> ### 置頂--训练规范：
+>
+> **每次train_tag 要和wandb project name一致**
+>
+> AdvancedUnet, 默认输入图像大小为512，使用BVMR的自制数据集
+>
+> AdvancedUnet_CLWD，输入图像大小为256，使用CLWD数据集
+>
+> | name              | 改动                                         | 保存模型                                                     | 效果                                     |
+> | ----------------- | -------------------------------------------- | ------------------------------------------------------------ | ---------------------------------------- |
+> | AdvancedUnet_v1   |                                              |                                                              |                                          |
+> | AdvancedUnet_v1.1 | reconstructed image的激活函数sigmoid改成tanh | AdvancedUnet_v1.1-10epoch.pth、AdvancedUnet_v1.1-20epoch.pth | 使得重建圖像水印部分更自然，**效果明顯** |
+> |                   |                                              |                                                              |                                          |
+
+**2022-3-13**
+
+算是取得階段性勝利？
+
+我的AdvancedUnet在mask預測上完勝BVMR，不過重建圖像效果并不是很好，測試代碼還沒完成，今天完成的都是關於mask的評價：mae，f-measure；下一步計劃測試**SSIM、psnr**
+
+![image-20220313231916462](./images/image-20220313231916462.png)
+
+<img src="./images/AdvancedUnet_v1_pr_curves.jpg" alt="AdvancedUnet_v1_pr_curves" style="zoom:25%;" />
+
+<img src="./images/AdvancedUnet_v1_fm_curves.jpg" alt="AdvancedUnet_v1_fm_curves" style="zoom:25%;" />
+
+训练规范：
+
+**每次train_tag 要和wandb project name一致**
+
+AdvancedUnet, 默认输入图像大小为512，使用BVMR的自制数据集
+
+AdvancedUnet_CLWD，输入图像大小为256，使用CLWD数据集
+
+| name              | 改动                                         | 保存模型                                                     | 效果                                     |
+| ----------------- | -------------------------------------------- | ------------------------------------------------------------ | ---------------------------------------- |
+| AdvancedUnet_v1   |                                              |                                                              |                                          |
+| AdvancedUnet_v1.1 | reconstructed image的激活函数sigmoid改成tanh | AdvancedUnet_v1.1-10epoch.pth、AdvancedUnet_v1.1-20epoch.pth | 使得重建圖像水印部分更自然，**效果明顯** |
+|                   |                                              |                                                              |                                          |
+
 **2022-3-10**
 
 这是遇到的最match的一张了:sob::sob:
