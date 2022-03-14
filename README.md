@@ -1,6 +1,6 @@
 # Graduation Project Dai**ly**
 
-> ### 置頂--训练规范：
+> ### :star:置頂--训练规范：
 >
 > **每次train_tag 要和wandb project name一致**
 >
@@ -13,6 +13,12 @@
 > | AdvancedUnet_v1   |                                              |                                                              |                                          |
 > | AdvancedUnet_v1.1 | reconstructed image的激活函数sigmoid改成tanh | AdvancedUnet_v1.1-10epoch.pth、AdvancedUnet_v1.1-20epoch.pth | 使得重建圖像水印部分更自然，**效果明顯** |
 > |                   |                                              |                                                              |                                          |
+
+**2022-3-14**
+
+提取mask的效果确实挺不错的，下一步有两个方向，一个是继续研究SLBR和splitnet的refinement算法，看看有没有合适的思路迁移过来，另一个思路是利用图像重建，把reconstructed image的mask部分直接表黑后拿来repaint
+
+![img](./images/0XB8(CP2)%5BWWI4%5DICDY$%5DK.png)
 
 **2022-3-13**
 
