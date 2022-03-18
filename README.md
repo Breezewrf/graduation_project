@@ -14,6 +14,18 @@
 > | AdvancedUnet_v1.1 | reconstructed image的激活函数sigmoid改成tanh | AdvancedUnet_v1.1-10epoch.pth、AdvancedUnet_v1.1-20epoch.pth | 使得重建圖像水印部分更自然，**效果明顯** |
 > |                   |                                              |                                                              |                                          |
 
+**2022-3-18**
+
+有点震惊，是不是应该把repo关了？
+
+这个重建的图像ssim、psnr算出来都是满的，我怀疑是不是计算方法有问题，但是算出来bvmr确实正常的数值，应该是数据集太简单了？
+
+![image-20220318230411430](./images/image-20220318230411430.png)
+
+中间这张是算法修复的，右边是gt，要是没有左边的水印图，还真分不清哪个是gt
+
+![image-20220318230616883](./images/image-20220318230616883.png)
+
 **2022-3-14**
 
 提取mask的效果确实挺不错的，下一步有两个方向，一个是继续研究SLBR和splitnet的refinement算法，看看有没有合适的思路迁移过来，另一个思路是利用图像重建，把reconstructed image的mask部分直接表黑后拿来repaint
