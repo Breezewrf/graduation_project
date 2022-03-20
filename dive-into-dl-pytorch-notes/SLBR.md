@@ -16,13 +16,15 @@ SLBR: 自校准定位和背景细化
 
 ## Module
 
-**掩码引导背景增强**（MBE）
-
-> mask decoder分支，得到预测掩码输出，loss采用bce
-
 **自校准掩膜细化**（SMR）
 
-> image decoder分支，得到coarse预测原图，采用loss采用L1距离，SMR模块采用BVMR的思想，连续三个residual block堆叠
+> mask decoder分支，得到预测掩码输出，loss采用l1 距离，SMR模块采用BVMR的思想，连续三个residual block堆叠
+>
+> SMR中的**自纠正算法是一个亮点**（Liu_Improving_Convolutional_Networks_With_Self-Calibrated_Convolutions_CVPR_2020_paper）
+
+**掩码引导背景增强**（MBE）
+
+> image decoder分支，得到coarse image输出，loss采用bce loss
 
 **Coarse Stage**
 

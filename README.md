@@ -12,7 +12,17 @@
 > | ----------------- | -------------------------------------------- | ------------------------------------------------------------ | ---------------------------------------- |
 > | AdvancedUnet_v1   |                                              |                                                              |                                          |
 > | AdvancedUnet_v1.1 | reconstructed image的激活函数sigmoid改成tanh | AdvancedUnet_v1.1-10epoch.pth、AdvancedUnet_v1.1-20epoch.pth | 使得重建圖像水印部分更自然，**效果明顯** |
-> |                   |                                              |                                                              |                                          |
+> | AdvancedUnet_v1.2 |                                              |                                                              |                                          |
+> | AdvancedUnet_v1.3 | CLWD dataset                                 | AdvancedUnet_v1.3_80epoch、AdvancedUnet_v1.3_140epoch        |                                          |
+> | AdvancedUnet_v1.4 | rgb motif dataset                            | AdvancedUnet_v1.4_40epoch                                    |                                          |
+
+**2022-3-20**
+
+今天训练了rgb motif 的数据集，还没测试，效果还行，就是不知道为什么CLWD的效果很差，有可能是比较难拟合，epoch可以再多一点
+
+唉可能还得跑好多份代码，要对比WDNet，SLBR，splitnet，感觉这得花好多时间
+
+先确定一下数据集吧，就不用CLWD了，以我自己做的数据集为准
 
 **2022-3-18**
 
