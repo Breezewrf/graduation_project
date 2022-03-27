@@ -26,4 +26,4 @@ two_stage
 
 思路：先用ResBlocks学习三个任务的基本特征，然后再用task-specific attention来re-weight,具体如下图：
 
-![image-20220228211332660](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220228211332660.png)
+<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220228211332660.png" alt="image-20220228211332660" style="zoom:80%;" />

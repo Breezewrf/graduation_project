@@ -13,3 +13,25 @@
 ## 2、 损失函数
 
 深度学习算法采用随机梯度下降法对目标进行优化和学习。为了准确和快速地学习目标，我们需要确保目标的数学表示，作为函数，它甚至可以覆盖边缘情况。损失函数的引入源于传统的机器学习，这些损失函数是在标签分布的基础上推导出来的。例如，binary cross entropy由伯努利分布推导而来，categorical cross entropy由多努利分布推导而来。在本文中，**我们关注的是语义分割而不是实例分割，因此像素级类的数量被限制在2个(实例分割要输出目标名称)**。在这里，我们将介绍15个广泛使用的丢失函数，并了解它们的用例场景。
+
+### A. Binary Cross-Entropy
+
+Cross Entropy[4]被定义为一个给定的随机变量或一组事件的两个概率分布之间的差异的度量。它被广泛用于分类目标，分割是像素级分类，效果很好。
+
+Binary Cross-Entropy 被定义为：
+
+![image-20220324172703693](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220324172703693.png)
+
+### B. Weighted Binary Cross-Entropy（WBC）
+
+![image-20220324173202579](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220324173202579.png)
+
+通过设置权重来均衡正负样本比例
+
+### C. Balanced Cross-Entropy (BCE)
+
+![image-20220324173407124](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220324173407124.png)
+
+与WBC略有差别，这里β是有具体定义的：
+
+<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220324173605775.png" alt="image-20220324173605775" style="zoom:50%;" />

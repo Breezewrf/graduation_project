@@ -18,19 +18,19 @@ H(X)表示熵，可以理解为确定性的增加，对于一个系统内的所�
 
 ## KL散度
 
-<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5C75110-e94b5412d85e5698.webp" alt="img" style="zoom:80%;" />
+<img src="./images/75110-e94b5412d85e5698.webp" alt="img" style="zoom: 67%;" />
 
 K-L散度其实是数据的**原始分布p**和**近似分布q**之间的对数差值的期望，用于评估**近似分布**相对于**原始分布**的**损失的期望**。如果继续用`2`为底的对数计算，则**K-L散度值表示信息损失的二进制位数**
 
-<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5C75110-f55d663d60503fa4.webp" alt="img" style="zoom:50%;" />
+<img src="./images/75110-f55d663d60503fa4.webp" alt="img" style="zoom:50%;" />
 
 > 计算KL散度时需要注意：虽然当p(xi)->0时，p(xi)log(p(xi)) = 0，但是q(xi) = 0时，p(xi)log(q(xi)) -> 无穷大，也就是说在观测q(xi)时应注意，每个事件的观测概率基于统计样本，有可能q(xi)=0，但实际上并不是绝对0，所以应当采取一些smooth 策略
 
-<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5C75110-a7dc83686d7206c1.webp" alt="img" style="zoom: 50%;" />
+<img src="./images/75110-a7dc83686d7206c1.webp" alt="img" style="zoom: 50%;" />
 
 > 以上图片说明了Smoothing的实现，其实就是加上一个很小的正数eps，挺常见的
 
-<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220324122358968.png" alt="image-20220324122358968" style="zoom: 67%;" />
+<img src="./images/image-20220324122358968.png" alt="image-20220324122358968" style="zoom: 67%;" />
 
 > 根据吉布斯不等式，若
 >
@@ -80,7 +80,7 @@ K-L散度其实是数据的**原始分布p**和**近似分布q**之间的对数�
 
 其中`nllloss`全称为negative log likelihood loss，`nllloss`对两个向量的操作为，**将predict中的向量，在class中对应的index取出，并取负号输出。label中为1，则取2，3，1中的第1位3，取负号后输出**。
 
-`nll_loss`表达式为：
+`nll_loss`表达式为：(把index的数取出来再加一个负号)
 
 > 
 >

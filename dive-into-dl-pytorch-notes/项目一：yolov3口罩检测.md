@@ -32,7 +32,7 @@ You Only Look Once
 
 **置信度**可以定义为`confidece = Pr(object) * IOU`，当bounding box不包括目标时（是背景）Pr = 0，包含目标时Pr = 1，IOU是预测框(predict bounding box)与实际框(ground truth)的IOU
 
-**边界框**的预测包括**5**个预测值：(x, y, w, h, c)，其中x，y是边界框中心相对左上角坐标的偏移值，单位是相对于单元格大小，w和h是相对于整个图片高宽的比例（**归一化**），c是置信度，每个单元格还要给出**C**个类别的概率值，**注意：不管一个单元格预测多少个边界框B，每个单元格都只预测一组类别概率值**
+**边界框**的预测包括**5**个预测值：(x, y, w, h, c)，其中x，y是边界框中心相对左上角坐标的偏移值，单位是相对于单元格大小，w和h是相对于整个图片高宽的比例（**归一化**），c是置信度，每个单元格还要给出**C**个类别的概率值，**注意：不管一个单元格预测多少个边界框B，每个单元格都只预测 同一组 类别概率值**
 
 可以把yolo看作回归模型，所有的预测值可以编码为一个张量：`S x S x (B*5 + C)`，在Pascal VOC数据集中，使用S = 7，B = 2，由于Pascal VOC有20个类，故C = 20，因此最后的预测是一个   `7 x 7 x 30` 的张量。
 
@@ -52,6 +52,8 @@ You Only Look Once
 
 **SSE(sum-squared error)误差平方和**
 
+(MSE是均方差)
+
 ​		使用和方误差是因为它很容易优化，
 
 ​		但是它并不完全符合我们最大化平均精度的目标。它将定位误差与分类误差同等加权，而分类误差可能并不理想。此外，在每个图像中，许多网格单元格不包含任何对象。这将这些单元格的confidence推向0，通常会压倒包含对象的单元格的梯度。这可能会导致模型不稳定，导致训练在早期出现偏差
@@ -59,6 +61,10 @@ You Only Look Once
 ​		为了弥补这一点，yolo**增加了边界框坐标预测的损失（乘上5），并减少了不包含对象的框的置信度预测的损失（乘上0.5）。**
 
 ​		同时SSE也同等看待large boxes和small boxes的误差，但实际上我们需要是误差度量反映出large boxes 的小误差比small boxes的小误差更重要，即同等对待大小不同的边界框，但是实际上较小的边界框的坐标误差应当要比较大的边界框要更敏感。为了保证这一点，将网络的边界框的宽与高预测改为对其平方根的预测，即预测值变为 ![[公式]](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cequation.svg) 。
+
+​		但是对于宽高为什么用了平方根呢？这里是这样的，我们先来看下图：
+![](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cb8ca33f9-48c7-4493-a28c-5580e471c55b-1648263197004.png)
+​		上图中，蓝色为bounding box，红色框为真实标注，如果W和h没有平方根的话，那么bounding box跟两个真实标注的位置loss是相同的。但是从面积看来B框是A框的25倍，C框是B框的81/25倍。B框跟A框的大小偏差更大，所以不应该有相同的loss。
 
 ​		因此yolo**预测边界框高度和宽度的平方根而不是直接预测高宽。**
 
@@ -68,7 +74,9 @@ You Only Look Once
 
 ​		由于每个单元格预测多个边界框。但是其对应类别只有一个。那么在训练时，如果该单元格内确实存在目标，那么只选择与ground truth的IOU最大的那个边界框来负责预测该目标，而其它边界框认为不存在目标。要注意的一点时，**对于不存在对应目标的边界框，其误差项就是只有置信度，坐标项误差是没法计算的。而只有当一个单元格内确实存在目标时，才计算分类误差项，否则该项也是无法计算的。**
 
-![image-20220220103250235](./images/yolo-loss.png)
+<img src="./images/yolo-loss.png" alt="image-20220220103250235" style="zoom:50%;" />
+
+<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5C199b88f5-27b6-41af-a0c4-5b38e40e954b.png" alt="loss" style="zoom: 80%;" />
 
 loss中包含了坐标误差、置信度误差(noobj表示box中不包含目标)
 
@@ -82,9 +90,16 @@ loss中包含了坐标误差、置信度误差(noobj表示box中不包含目标)
 
 #### 4、Limitation
 
-​		1、Yolo对bounding box的预测施加了很强的空间约束，由于一个grid cell只能由两个bounding box，但在训练时，yolo只指定其中一个具有最大IOU的predictor负责预测某对象，即只能由一个class。这使得bounding box predictors之间具有专门化，对于不同尺寸、横纵比的物体有对应不同的predictor。但也**限制了模型可以预测的附近物体的数量**。我们的模型很难处理成群出现的小对象，比如鸟群。因为我们的模型学会了从数据中预测边界框，所以它很难推广到新的或不寻常的纵横比或配置的对象。
+​		1、Yolo对bounding box的预测施加了很强的空间约束，由于一个grid cell只能由两个bounding box，但在训练时，yolo只指定其中一个具有最大IOU的predictor负责预测某对象，即只能有一个class。这使得bounding box predictors之间具有专门化，对于不同尺寸、横纵比的物体有对应不同的predictor。但也**限制了模型可以预测的附近物体的数量**。我们的模型很难处理成群出现的小对象，比如鸟群。因为我们的模型学会了从数据中预测边界框，所以它很难推广到新的或不寻常的纵横比或配置的对象。
 
 ​		2、large box的小错误实际上可以忽略，但small box里的小错误实际上确实影响很大（因为要算IOU），即使采用了平方根也不能完全解决这个问题。
+
+
+
+* 每个网格只对应两个bounding box，当物体的**长宽比不常见**(也就是训练数据集覆盖不到时)，效果较差。
+* 原始图片只划分为7x7的网格，当**两个物体靠的很近**时，效果比较差。
+* 最终**每个网格只对应一个类别，容易出现漏检**(物体没有被识别到)。
+* 对于图片中**比较小的物体**，效果比较差。这其实是所有目标检测算法的通病。
 
 #### 5、改进
 
@@ -128,25 +143,8 @@ Faster R-CNN和SSD中，先验框的维度（长和宽）都是手动设定的�
 
 ## Yolov3
 
-**darknet53**，采用了残差结构和FPN架构
+**darknet53**，采用了残差结构和FPN（特征金字塔，不是RPN）架构
 
 有了residual可以使得网络变得更深（包含53个卷积层）
 
 FPN架构实现多尺度检测（特征金字塔）
-
-
-
-## R-CNN
-
-## fast R-CNN
-
-## faster R-CNN
-
-## SSD
-
-全称为：Single Shot MultiBox Detector
-
-one stage，多框、多尺度检测
-
-
-
