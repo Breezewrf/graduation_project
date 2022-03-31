@@ -58,7 +58,13 @@ Binary Cross-Entropy 被定义为：
 
 Dice是医学图像比赛中使用频率最高的度量指标，它是一种集合相似度度量指标，通常用于计算两个样本的相似度，值域为[0, 1]。在医学图像中经常用于图像分割，分割的最好结果是1，最差时候结果为0.
 
+（好像下面这个公式有问题）
+
 ![[公式]](./images/equation-1648559425504.svg)
+
+应该是这个公式：
+
+<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5C20200318134203976.png" alt="在这里插入图片描述" style="zoom:67%;" />
 
 **与IoU有所不同，分母的重叠部分没有减掉而是直接在分子乘2。**
 
@@ -90,7 +96,7 @@ Dice是医学图像比赛中使用频率最高的度量指标，它是一种集�
 
 定义为Dice loss和modified cross entropy的加权和。它试图利用Dice的针对类别不平衡的灵活性，同时使用交叉熵来平滑曲线。
 
-![image-20220329202236465](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220329202236465.png)
+<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220329202236465.png" alt="image-20220329202236465" style="zoom:67%;" />
 
 ### K. Exponential Logarithmic Loss
 
@@ -100,7 +106,7 @@ Dice是医学图像比赛中使用频率最高的度量指标，它是一种集�
 
 距离地图(Distance map)可以定义为ground truth与predict map之间的距离(欧氏距离、绝对距离等)。有两种方法可以结合距离图，一种是创建神经网络结构，在其中有一个重建头部(reconstructed head)和分割，或者将其引入损失函数。按照同样的理论，Caliva等人使用了来自ground truth mask的距离图，并创建了一个基于惩罚的自定义损失函数。使用这种方法，**很容易将网络的焦点引导到难以分割的边界区域**。
 
-![image-20220329203202390](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220329203202390.png)
+<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220329203202390.png" alt="image-20220329203202390" style="zoom:67%;" />
 
 其中φ是生成的距离图
 
