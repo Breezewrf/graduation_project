@@ -2,7 +2,7 @@
 
 ## Abstract
 
-近年来，基于分割的方法在场景文本检测中非常流行，因为分割产生的结果能够更精确的描述各种形状的场景文本，如曲线文本。然而，二值化的后处理在基于分割的检测中是十分重要的，它将分割方法产生的probability map转换成文本的边界框。本文提出了一个可微二值化（DB）模块，它可以在一个分割网络中进行二值化处理。与DB模块一起优化的分割网络可以自适应地设置二值化阈值，这不仅简化了后处理，而且提高了文本检测的性能。
+近年来，基于分割的方法在场景文本检测中非常流行，因为分割产生的结果能够更精确的描述**各种形状**的场景文本，如曲线文本。然而，二值化的后处理在基于分割的检测中是十分重要的，它将分割方法产生的probability map转换成文本的边界框。本文提出了一个可微二值化（DB）模块，它可以在一个分割网络中进行二值化处理。与DB模块一起优化的分割网络可以自适应地设置二值化阈值，这不仅简化了后处理，而且提高了文本检测的性能。
 
 ## Introduction
 
@@ -71,7 +71,15 @@ DB提高性能的原因可以用梯度的反向传播来解释：
 
 #### Deformable convolution
 
-空洞卷积
+可形变卷积：就是在这些卷积层上，添加了位移变量，这个变量根据数据的情况学习，偏移后，相当于卷积核每个方块可伸缩的变化，从而改变了感受野的范围，感受野成了一个多边形。
+
+<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220405152414185.png" alt="image-20220405152414185" style="zoom:67%;" />
+
+上图是在二维平面上deformable convolution和普通的convolution的描述图。（a）是普通的卷积，卷积核大小为3*3，采样点排列非常规则，是一个正方形。（b）是可变形的卷积，给每个采样点加一个offset（这个offset通过额外的卷积层学习得到），排列变得不规则。（c）和（d）是可变形卷积的两种特例。对于（c）加上offset，达到**尺度变换**的效果；对于（d）加上offset，达到**旋转变换**的效果。
+
+<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220405152612500.png" alt="image-20220405152612500" style="zoom:50%;" />
+
+如上图所示，有一个额外的conv层来学习offset，共享input feature maps。然后input feature maps和offset共同作为deformable conv层的输入，deformable conv层操作采样点发生偏移，再进行卷积。
 
 可以为模型提供一个灵活的接受域，这对极端纵横比的文本实例尤其有益。随后，在ResNet-18或ResNet-50中conv3、conv4、conv5卷积层中的所有3x3卷积都使用了模块化的空洞卷积。
 
@@ -91,7 +99,7 @@ DB提高性能的原因可以用梯度的反向传播来解释：
 
 根据loss的数值，α和β分别设为1.0和10。
 
-我们对Ls和Lb都采用了BCE loss，为了克服正负数量的不平衡，我们采用了困难负样本挖掘方法，通过对困难负样本进行采样来实现BCE损耗。
+我们对Ls和Lb都采用了BCE loss，为了克服正负数量的不平衡，我们采用了**困难负样本挖掘**方法，通过对困难负样本进行采样来实现BCE损耗。
 
 <img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220327181739748.png" alt="image-20220327181739748" style="zoom:67%;" />
 
@@ -107,7 +115,13 @@ DB提高性能的原因可以用梯度的反向传播来解释：
 
 在推理阶段，我们可以使用probability map或近似的binary map来生成文本边界框，这两种方法的结果几乎相同。为了提高效率，我们使用了probability map，从而可以去除阈值分支。
 
-盒子形成过程包括三个步骤:(1)probability map/近似binary map先用一个常数阈值(0.2)进行二值化，得到二值图;(2)由二值映射得到连通区域(shrunk text region);(3)利用Vatti裁剪算法(Vati 1992)的偏移D`对shrunk region进行dilate。
+盒子形成过程包括三个步骤:
+
+(1)probability map/近似binary map先用一个常数阈值(0.2)进行二值化，得到二值图;
+
+(2)由二值映射得到连通区域(shrunk text region);
+
+(3)利用Vatti裁剪算法(Vati 1992)的偏移D`对shrunk region进行dilate。
 
 <img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220327182804342.png" alt="image-20220327182804342" style="zoom:50%;" />
 

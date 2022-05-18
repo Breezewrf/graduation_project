@@ -16,6 +16,22 @@
 > | AdvancedUnet_v1.3 | CLWD dataset                                 | AdvancedUnet_v1.3_80epoch、AdvancedUnet_v1.3_140epoch        |                                          |
 > | AdvancedUnet_v1.4 | rgb motif dataset                            | AdvancedUnet_v1.4_40epoch                                    |                                          |
 
+**2022-5-18**
+
+可以以保密为借口没有更新吗:grimacing:
+
+方法还是很有效果的，但是实验资源有限，有一些实验还没有按理想的想法完成，后续有机会还会继续深入研究
+
+<img src="./images/image-20220518210638882.png" alt="image-20220518210638882" style="zoom:67%;" />
+
+<img src="./images/image-20220518210750337.png" alt="image-20220518210750337" style="zoom:67%;" />
+
+<img src="./images/image-20220518210822336.png" alt="image-20220518210822336" style="zoom:67%;" />
+
+**2022-4-24**
+
+转眼间一个月过去了，
+
 **2022-3-20**
 
 今天训练了rgb motif 的数据集，还没测试，效果还行，就是不知道为什么CLWD的效果很差，有可能是比较难拟合，epoch可以再多一点

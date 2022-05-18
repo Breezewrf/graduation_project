@@ -42,7 +42,7 @@ Binary Cross-Entropy 被定义为：
 
 与WBC略有差别，这里β是有具体定义的：
 
-<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220324173605775.png" alt="image-20220324173605775" style="zoom:50%;" />
+<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220324173605775.png" alt="image-20220324173605775" style="zoom: 67%;" />
 
 ### D. Focal Loss
 
