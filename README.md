@@ -16,6 +16,16 @@
 > | AdvancedUnet_v1.3 | CLWD dataset                                 | AdvancedUnet_v1.3_80epoch、AdvancedUnet_v1.3_140epoch        |                                          |
 > | AdvancedUnet_v1.4 | rgb motif dataset                            | AdvancedUnet_v1.4_40epoch                                    |                                          |
 
+**2022-7-12**
+
+很久没有更新了，
+
+拖延到现在
+
+转眼答辩已经过去好久了，很遗憾没能拿到优秀毕设，反思一下自己做的还是不够，之前计划的ncnn部署这次也没有完成，由于一些bug始终无法解决，应该是c++图像预处理的问题，希望往后能有机会继续深入学习。
+
+目前在做多目标跟踪方向了，是一个之前接触比较少的方向，希望在这个暑假能够有所成长，这个repo将作为笔记仓库继续使用。
+
 **2022-5-18**
 
 可以以保密为借口没有更新吗:grimacing:

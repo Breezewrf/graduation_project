@@ -14,7 +14,7 @@ https://download.pytorch.org/whl/torchvision/
 
 https://www.lfd.uci.edu/~gohlke/pythonlibs/
 
-![image-20220712193409596](C:%5CUsers%5CBreeze%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220712193409596.png)
+![image-20220712193409596](images/image-20220712193409596.png)
 
 还有切换cuda版本的指令
 
