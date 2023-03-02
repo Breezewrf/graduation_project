@@ -8,11 +8,11 @@
 
 ## 熵
 
-<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220323223706777.png" alt="image-20220323223706777" style="zoom: 67%;" />
+<img src="./images/image-20220323223706777.png" alt="image-20220323223706777" style="zoom: 67%;" />
 
-<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220324122234808.png" alt="image-20220324122234808" style="zoom: 50%;" />
+<img src="./images/image-20220324122234808.png" alt="image-20220324122234808" style="zoom: 50%;" />
 
-H(X)表示熵，可以理解为确定性的增加，对于一个系统内的所有事件xi，信息量f(x1, x2) = f(x1) * f(x2)，将连乘改为连加，因此这里用log，由于概率越小的事件带来的信息量应该越大(中国队赢球带来的信息量就很大)，所以乘上系数-1，又因为系统内发生概率小的事件应当占有较小的权重，因此取加权平均求期望，得到上是H(X)的定义。如果我们使用以`2`为底的对数计算H值的话，可以把这个值看作是编码信息所需要的最少二进制位个数bits
+H(X)表示熵，可以理解为不确定性，对于一个系统内的所有事件xi，信息量f(x1, x2) = f(x1) * f(x2)，将连乘改为连加，因此这里用log，由于概率越小的事件带来的信息量应该越大(中国队赢球带来的信息量就很大)，所以乘上系数-1，又因为系统内发生概率小的事件应当占有较小的权重，因此取加权平均求期望，得到上是H(X)的定义。如果我们使用以`2`为底的对数计算H值的话，可以把这个值看作是编码信息所需要的最少二进制位个数bits
 
 可是熵值并没有给出压缩数据到最小熵值的方法，即如何编码数据才能达到最优（存储空间最优）。熵的主要作用是告诉我们最优编码信息方案的理论下界（存储空间），以及度量数据的信息量的一种方式。但是理解了熵，我们就知道有多少信息蕴含在数据之中，现在我们就可以计算当我们用一个带参数的概率分布来近似替代原始数据分布的时候，到底损失了多少信息。
 
@@ -20,7 +20,9 @@ H(X)表示熵，可以理解为确定性的增加，对于一个系统内的所�
 
 <img src="./images/75110-e94b5412d85e5698.webp" alt="img" style="zoom: 67%;" />
 
-K-L散度其实是数据的**原始分布p**和**近似分布q**之间的对数差值的期望，用于评估**近似分布**相对于**原始分布**的**损失的期望**。如果继续用`2`为底的对数计算，则**K-L散度值表示信息损失的二进制位数**
+<font color='red'>K-L散度其实是数据的**原始分布p**和**近似分布q**之间的对数差值的期望，</font>
+
+用于评估**近似分布**相对于**原始分布**的**损失的期望**。如果继续用`2`为底的对数计算，则**K-L散度值表示信息损失的二进制位数**
 
 <img src="./images/75110-f55d663d60503fa4.webp" alt="img" style="zoom:50%;" />
 
@@ -34,9 +36,9 @@ K-L散度其实是数据的**原始分布p**和**近似分布q**之间的对数�
 
 > 根据吉布斯不等式，若
 >
-> ![img](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Caf7525af47a967ff7069b1b8d16d1b9b.svg)，且![img](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5C8295c2dbb1151455d0d3d530fb89d7c7.svg)，则有：
+> ![img](./images/af7525af47a967ff7069b1b8d16d1b9b.svg)，且![img](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5C8295c2dbb1151455d0d3d530fb89d7c7.svg)，则有：
 >
-> ![img](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cda744f76a902abe975bbb0e5a8fc677a.svg)
+> ![img](./images/da744f76a902abe975bbb0e5a8fc677a.svg)
 >
 > 等号成立当且仅当![img](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5C61bb3b12d6dab4bcdeea9f932f5bcd4e.svg)
 >
@@ -48,13 +50,13 @@ K-L散度其实是数据的**原始分布p**和**近似分布q**之间的对数�
 
 交叉熵是信息论中的一个重要概念，它的大小表示两个概率分布之间的差异，可以通过最小化交叉熵来得到目标概率分布的近似分布。
 
-<img src="C:%5CUsers%5CBreeze%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220306115638753.png" alt="image-20220306115638753" style="zoom: 80%;" />
+<img src="./images/image-20220306115638753.png" alt="image-20220306115638753" style="zoom: 80%;" />
 
 其中p是真实值，q是预测值
 
 ## Binary Cross Entropy（BCE）
 
-<img src="C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220324123545527.png" alt="image-20220324123545527" style="zoom: 50%;" />
+<img src="./images/image-20220324123545527.png" alt="image-20220324123545527" style="zoom: 50%;" />
 
 > 由于输入xi(即pi)是真实值，只有true or false两种结果，而输出的yi表示的是一个概率，因此当xi == 1时，对应yi，xi == 0时，对应1 - yi，得到上式，即为**binary cross entropy**
 >

@@ -18,5 +18,5 @@ one stage，多框、多尺度检测
 
 YOLO对锚框进行改进，由于SSD的锚框存在大量重叠，开销过大，YOLO将图像均匀分成SxS个锚框（见上文）
 
-![image-20220326171149306](C:%5CUsers%5CBreeze%5CDesktop%5Cgra_proj%5Cgraduation_project%5Cdive-into-dl-pytorch-notes%5Cimages%5Cimage-20220326171149306.png)
+![image-20220326171149306](./images/image-20220326171149306.png)
 
